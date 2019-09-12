@@ -27,10 +27,10 @@ class CreateOrdersTable extends Migration
             $table->string('payment_status', 16)->default('pending');
             $table->text('payment_details')->nullable();
             $table->string('operational_status', 16)->default('pending');
-            $table->unsignedInteger('porcessed_by')->nullable();
+            $table->unsignedInteger('processed_by')->nullable();
             $table->timestamps();
-            $table->foreign('user_id')->reference('id')->on('users')->onDelete('cascade');
-            $table->foreign('processed_by')->reference('id')->on('users')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('processed_by')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
