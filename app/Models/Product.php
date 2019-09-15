@@ -21,6 +21,6 @@ class Product extends Model implements HasMedia
 
     public function category()
     {
-    	retrun $this->hasOne(Category::class);
+    	return $this->hasOne(Category::class);
     }
 }
