@@ -15,7 +15,7 @@ class Product extends Model implements HasMedia
     {
     	parent::boot();
     	static::creating(function($product){
-    		$product->slug = str_slug($product->title)
+    		$product->slug = str_slug($product->title);
     	});
     }
 
