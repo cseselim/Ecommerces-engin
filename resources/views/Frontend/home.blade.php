@@ -1,5 +1,6 @@
+<?php use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage; ?>
 @extends('Frontend.layout.layout')
-
 @section('content')
 
 	<div class="header_bottom">
@@ -77,34 +78,20 @@
     		<div class="clear"></div>
     	</div>
 	      <div class="section group">
+	      		<?php 
+	      			foreach ($products as  $value) {
+	      		 ?>
 				<div class="grid_1_of_4 images_1_of_4">
-					 <a href="preview.html"><img src="images/feature-pic1.png" alt="" /></a>
-					 <h2>Lorem Ipsum is simply </h2>
-					 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-					 <p><span class="price">$505.22</span></p>
-				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
+					 <a href="{{$value->slug}}">
+					 	<img src="{{ asset('') }}images/feature-pic2.jpg" alt="product"/></a>
+					 <h2>{{  Str::limit($value->title, 50, '...') }} </h2>
+					 <p>{{  Str::limit($value->description, 50, '...') }}</p>
+					 <p><span class="price">{{ $value->price }}</span></p>
+				     <div class="button"><span><a href="{{ route('product',$value->slug)}}" class="details">Details</a></span></div>
 				</div>
-				<div class="grid_1_of_4 images_1_of_4">
-					<a href="preview.html"><img src="images/feature-pic2.jpg" alt="" /></a>
-					 <h2>Lorem Ipsum is simply </h2>
-					 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-					 <p><span class="price">$620.87</span></p>   
-				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
-				</div>
-				<div class="grid_1_of_4 images_1_of_4">
-					<a href="preview.html"><img src="{{ asset('') }}images/feature-pic3.jpg" alt="" /></a>
-					 <h2>Lorem Ipsum is simply </h2>
-					 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-					 <p><span class="price">$220.97</span></p> 
-				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
-				</div>
-				<div class="grid_1_of_4 images_1_of_4">
-					<img src="{{ asset('') }}images/feature-pic4.png" alt="" />
-					 <h2>Lorem Ipsum is simply </h2>
-					 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-					 <p><span class="price">$415.54</span></p>  
-				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
-				</div>
+				<?php 
+					}
+				 ?>
 			</div>
 			<div class="content_bottom">
     		<div class="heading">

@@ -12,10 +12,13 @@
 */
 
 
+/*==========================
+====Frontend contollers=====
+============================*/
 
 Route::group(['namespace' => 'Frontend'], function(){
 
-    // Controllers Within The "App\Http\Controllers\Admin" Namespace
     Route::get('/', 'HomeController@home')->name('home');
-    
+    Route::get('product/{slug}', 'ProductContorller@productDetails')->name('product');
+
 });
