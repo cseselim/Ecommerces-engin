@@ -656,7 +656,7 @@ p.note{
   float: left;
   line-height: 1.9em;
   margin-top: 0.3em;
-  width: 100%;
+  width: 50%;
 }
 .images_1_of_4 .button a{
 		padding:7px 20px;
@@ -2474,4 +2474,14 @@ p.terms {
 		width:92%;
 		padding:4%;
 	}
+}
+
+.message{
+	width: 100%;
+    text-align: center;
+    padding: 9px 0px;
+    color: #3c763d;
+    background-color: #dff0d8;
+    border-color: #d6e9c6;
+    margin-bottom: 13px;
 }

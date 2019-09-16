@@ -6,29 +6,27 @@
     	<div class="section group">
 				<div class="cont-desc span_1_of_2">				
 					<div class="grid images_3_of_2">
-						<img src="{{ asset('') }}images/preview-img.jpg" alt="" />
+						<img src="images/preview-img.jpg" alt="" />
 					</div>
 				<div class="desc span_3_of_2">
-					<h2>{{ $productDetails->title }}</h2>
-					<p>{{ $productDetails->description }}</p>					
+					<h2>Lorem Ipsum is simply dummy text </h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.</p>					
 					<div class="price">
-						<p>Price: <span>${{ $productDetails->price }}</span></p>
+						<p>Price: <span>$500</span></p>
 						<p>Category: <span>Laptop</span></p>
 						<p>Brand:<span>Samsnumg</span></p>
 					</div>
 				<div class="add-cart">
-					<form action="{{ route('addToCart') }}" method="post">
-						@csrf
-						<input type="hidden" name="product_id" value="{{ $productDetails->id }}">
+					<form action="cart.html" method="post">
 						<input type="number" class="buyfield" name="" value="1"/>
-						<input type="submit" class="buysubmit" name="submit" value="addToCart"/>
+						<input type="submit" class="buysubmit" name="submit" value="Buy Now"/>
 					</form>				
 				</div>
 			</div>
 			<div class="product-desc">
 			<h2>Product Details</h2>
-			<p>{{ $productDetails->description }}</p>
-	        
+			<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+	        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
 	    </div>
 				
 	</div>

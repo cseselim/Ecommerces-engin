@@ -86,7 +86,20 @@ use Illuminate\Support\Facades\Storage; ?>
 					 	<img src="{{ asset('') }}images/feature-pic2.jpg" alt="product"/></a>
 					 <h2>{{  Str::limit($value->title, 50, '...') }} </h2>
 					 <p>{{  Str::limit($value->description, 50, '...') }}</p>
-					 <p><span class="price">{{ $value->price }}</span></p>
+					 <p><span class="price">
+					 	@if($value->sale_price != null && $value->sale_price > 0)
+					 	BDT<strike>{{ $value->price }}</strike> {{$value->sale_price}}
+					 	@else
+					 		BDT{{ $value->price }}
+					 	@endif
+					 </span></p>
+					 <div class="button"><span>
+					 <form action="{{ route('addToCart') }}" method="post">
+						@csrf
+						<input type="hidden" name="product_id" value="{{ $value->id }}">
+						<input type="submit" class="buysubmit" name="submit" value="addToCart"/>
+					</form>	
+					</span></div>
 				     <div class="button"><span><a href="{{ route('product',$value->slug)}}" class="details">Details</a></span></div>
 				</div>
 				<?php 
@@ -104,25 +117,52 @@ use Illuminate\Support\Facades\Storage; ?>
 					 <a href="preview.html"><img src="{{ asset('') }}images/new-pic1.jpg" alt="" /></a>
 					 <h2>Lorem Ipsum is simply </h2>
 					 <p><span class="price">$403.66</span></p>
+					 <div class="button"><span>
+					 <form action="" method="post">
+						
+						<input type="hidden" name="product_id" value="">
+						<input type="submit" class="buysubmit" name="submit" value="addToCart"/>
+					</form>	
+					</span></div>
 				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
 				</div>
 				<div class="grid_1_of_4 images_1_of_4">
 					<a href="preview.html"><img src="{{ asset('') }}images/new-pic2.jpg" alt="" /></a>
 					 <h2>Lorem Ipsum is simply </h2>
-					 <p><span class="price">$621.75</span></p> 
+					 <p><span class="price">$621.75</span></p>
+					 <div class="button"><span>
+					 <form action="" method="post">
+						
+						<input type="hidden" name="product_id" value="">
+						<input type="submit" class="buysubmit" name="submit" value="addToCart"/>
+					</form>	
+					</span></div>
 				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
 				</div>
 				<div class="grid_1_of_4 images_1_of_4">
 					<a href="preview.html"><img src="{{ asset('') }}images/feature-pic2.jpg" alt="" /></a>
 					 <h2>Lorem Ipsum is simply </h2>
 					 <p><span class="price">$428.02</span></p>
+					 <div class="button"><span>
+					 <form action="" method="post">
+						
+						<input type="hidden" name="product_id" value="">
+						<input type="submit" class="buysubmit" name="submit" value="addToCart"/>
+					</form>	
+					</span></div>
 				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
 				</div>
 				<div class="grid_1_of_4 images_1_of_4">
 				 <img src="{{ asset('') }}images/new-pic3.jpg" alt="" />
 					 <h2>Lorem Ipsum is simply </h2>					 
 					 <p><span class="price">$457.88</span></p>
-
+					 <div class="button"><span>
+					 <form action="" method="post">
+						
+						<input type="hidden" name="product_id" value="">
+						<input type="submit" class="buysubmit" name="submit" value="addToCart"/>
+					</form>	
+					</span></div>
 				     <div class="button"><span><a href="preview.html" class="details">Details</a></span></div>
 				</div>
 			</div>
