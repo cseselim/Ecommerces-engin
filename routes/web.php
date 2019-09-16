@@ -11,6 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+
+Route::group(['namespace' => 'Frontend'], function(){
+
+    // Controllers Within The "App\Http\Controllers\Admin" Namespace
+    Route::get('/', 'HomeController@home')->name('home');
+    
 });
