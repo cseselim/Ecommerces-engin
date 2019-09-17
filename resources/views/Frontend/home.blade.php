@@ -1,5 +1,4 @@
-<?php use Illuminate\Support\Str;
-use Illuminate\Support\Facades\Storage; ?>
+<?php use Illuminate\Support\Str;?>
 @extends('Frontend.layout.layout')
 @section('content')
 

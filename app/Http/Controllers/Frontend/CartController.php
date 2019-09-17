@@ -75,4 +75,10 @@ class CartController extends Controller
 
         return redirect()->route('show.cart');
     }
+
+    public function cartclear()
+    {
+        session(['cart' => []]);
+        return redirect()->route('show.cart');
+    }
 }

@@ -2485,3 +2485,15 @@ p.terms {
     border-color: #d6e9c6;
     margin-bottom: 13px;
 }
+
+.clearcart{
+	margin-top: 43px;
+}
+.clearcart a{
+	width: 10%;
+    background: red;
+    text-align: center;
+    padding: 7px 13px;
+    color: #fff;
+    margin-top: 53px;
+}

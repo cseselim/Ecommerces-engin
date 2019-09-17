@@ -12,6 +12,8 @@
 			    				<?php echo session()->get('message'); ?>
 			    			</div>
 			    	<?php } ?>
+						<?php $total = 0; ?>
+			    	<?php if (!empty($cart)) { ?>
 						<table class="tblone">
 							<tr>
 								<th width="20%">Product Name</th>
@@ -21,8 +23,8 @@
 								<th width="20%">Total Price</th>
 								<th width="10%">Action</th>
 							</tr>
-							<?php $total = 0; ?>
-							<?php foreach ($cart as $key => $value) { ?>
+							<?php 
+							foreach ($cart as $key => $value) { ?>
 							<tr>
 								<td>{{ $value['title'] }}</td>
 								<td><img src="images/new-pic3.jpg" alt=""/></td>
@@ -43,8 +45,13 @@
 								</td>
 							</tr>
 							<?php $total = $total+$price; 
-							 } ?>
+							 } }else{?>
+							 	<div class="message">
+							 		Cart is empty!
+							 	</div>
+							 <?php } ?>
 						</table>
+						<?php if (!empty($cart)): ?>
 						<table style="float:right;text-align:left;" width="40%">
 							<tr>
 								<th>Sub Total : </th>
@@ -59,10 +66,13 @@
 								<td>TK. 241500 </td>
 							</tr>
 					   </table>
+					   <div class="clearcart"><a href="{{ route('cart.clear') }}">CartClear</a></div>
+						<?php endif ?>
+						
 					</div>
 					<div class="shopping">
 						<div class="shopleft">
-							<a href="index.html"> <img src="images/shop.png" alt="" /></a>
+							<a href="{{ URL::to('/') }}"> <img src="images/shop.png" alt="" /></a>
 						</div>
 						<div class="shopright">
 							<a href="login.html"> <img src="images/check.png" alt="" /></a>

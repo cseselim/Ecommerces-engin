@@ -23,5 +23,6 @@ Route::group(['namespace' => 'Frontend'], function(){
     Route::get('/cart', 'CartController@ShowCart')->name('show.cart');
     Route::post('/addToCart', 'CartController@addToCart')->name('addToCart');
     Route::post('/removeCart', 'CartController@removeCart')->name('remove.cart');
+    Route::get('/cartclear', 'CartController@cartclear')->name('cart.clear');
 
 });
