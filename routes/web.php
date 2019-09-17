@@ -31,7 +31,9 @@ Route::group(['namespace' => 'Frontend'], function(){
     Route::post('/processlogin', 'AuthController@processLogin')->name('process.login');
 
     Route::get('/registetionfrom', 'AuthController@ShowRegistetionForm')->name('registetion.from');
-    Route::post('/processregitetion', 'AuthController@processRegistetion')->name('process.regitetion');
+    Route::post('/processregistetion', 'AuthController@processRegistetion')->name('process.registetion');
+    Route::get('/logout', 'AuthController@logout')->name('logout');
+
 
 
 });

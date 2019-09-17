@@ -85,6 +85,10 @@ class CartController extends Controller
 
     public function checkout()
     {
-        return view('Frontend.checkout');
+        if (auth()->check()) {
+            return view('Frontend.checkout');
+        }else{
+            return redirect()->route('login.form');
+        }
     }
 }

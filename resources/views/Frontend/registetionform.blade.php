@@ -6,7 +6,7 @@
     	 
     	<div class="register_account">
     		<h3>Register New Account</h3>
-    		<form action="{{ route('process.regitetion') }}" method="post">
+    		<form action="{{ route('process.registetion') }}" method="post">
     			@csrf
 		   		<table>
 		   			<tbody>

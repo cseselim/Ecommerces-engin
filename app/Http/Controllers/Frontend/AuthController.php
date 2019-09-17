@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
 use App\Models\User;
@@ -10,15 +11,40 @@ use App\Models\Order;
 
 class AuthController extends Controller
 {
+
+
     public function ShowLoginForm()
     {
     	return view('Frontend.loginform');
     }
 
-    public function processLogin()
+    public function processLogin(Request $request)
     {
-    	
+    	$validator = $this->validate($request, [
+            'email' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+
+        $credentials = $request->only('email', 'password');
+
+        if (Auth()->attempt($credentials)) {
+            
+            return redirect()->route('checkout');
+        };
+
+
+        session()->flash('message','Invalid email and password');
+        return redirect()->back();
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('home');
+    }
+
+
 
     public function ShowRegistetionForm()
     {

@@ -2498,3 +2498,33 @@ p.terms {
     color: #fff;
     margin-top: 53px;
 }
+
+.padding_top10{
+
+}
+legend {
+    font-weight: bold;
+    padding: 2px;
+    font-size: 15px;
+    color: #396B8B;
+}
+.padding_top10 ul{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-left: 40px;
+}
+.padding_top10 p{
+	font-size: 12px;
+    list-style: circle;
+    color: #396B8B;
+    margin-top: 9px;
+}
+.padding_top10 ul li{
+    font-size: 12px;
+    list-style: circle;
+    line-height: 19px;
+    color: #396B8B;
+}
+.checkout form input[type="text"]{
+    color: #000 ;
+}

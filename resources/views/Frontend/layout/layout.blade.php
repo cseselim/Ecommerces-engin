@@ -30,7 +30,12 @@
 							</a>
 						</div>
 			      </div>
-		   <div class="login"><a href="login.html">Login</a></div>
+		   @guest
+		   	<div class="login"><a href="{{ route('login.form') }}">Login</a></div>
+		   @endguest
+			@auth
+		   	<div class="login"><a href="{{ route('logout') }}">Logout</a></div>
+		   @endauth
 		 <div class="clear"></div>
 	 </div>
 	 <div class="clear"></div>
@@ -40,7 +45,10 @@
 	  <li><a href="index.html">Home</a></li>
 	  <li><a href="products.html">Products</a> </li>
 	  <li><a href="topbrands.html">Top Brands</a></li>
-	  <li><a href="cart.html">Cart</a></li>
+	  <li><a href="{{ route('show.cart') }}">Cart</a></li>
+	  @auth
+	  <li><a href="cart.html">Profile</a></li>
+	  @endauth
 	  <li><a href="contact.html">Contact</a> </li>
 	  <div class="clear"></div>
 	</ul>
