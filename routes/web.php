@@ -25,4 +25,13 @@ Route::group(['namespace' => 'Frontend'], function(){
     Route::post('/removeCart', 'CartController@removeCart')->name('remove.cart');
     Route::get('/cartclear', 'CartController@cartclear')->name('cart.clear');
 
+    Route::get('/checkout', 'CartController@checkout')->name('checkout');
+    
+    Route::get('/loginfrom', 'AuthController@ShowLoginForm')->name('login.form');
+    Route::post('/processlogin', 'AuthController@processLogin')->name('process.login');
+
+    Route::get('/registetionfrom', 'AuthController@ShowRegistetionForm')->name('registetion.from');
+    Route::post('/processregitetion', 'AuthController@processRegistetion')->name('process.regitetion');
+
+
 });

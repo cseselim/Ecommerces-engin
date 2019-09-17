@@ -81,4 +81,10 @@ class CartController extends Controller
         session(['cart' => []]);
         return redirect()->route('show.cart');
     }
+
+
+    public function checkout()
+    {
+        return view('Frontend.checkout');
+    }
 }

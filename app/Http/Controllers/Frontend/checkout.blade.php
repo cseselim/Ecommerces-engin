@@ -2,6 +2,14 @@
 @section('content')
 
 	<div class="main">
+		after checkout you must login
+		after checkout you must login
+		after checkout you must login
+		<a href="{{route('registetion.from')}}">login</a>
+		<a href="{{route('registetion.from')}}">login</a>
+	</div>
+
+	<div class="main">
     <div class="content">
     	<div class="cartoption">		
 			<div class="cartpage">
@@ -82,5 +90,4 @@
        <div class="clear"></div>
     </div>
  </div>
-
 @endsection
