@@ -58,12 +58,12 @@
 								<td>TK. {{$total}}</td>
 							</tr>
 							<tr>
-								<th>VAT : </th>
-								<td>TK. 31500</td>
+								<th>VAT : 0%</th>
+								<td>TK. {{$total}}</td>
 							</tr>
 							<tr>
 								<th>Grand Total :</th>
-								<td>TK. 241500 </td>
+								<td>TK. {{$total}} </td>
 							</tr>
 					   </table>
 					   <div class="clearcart"><a href="{{ route('cart.clear') }}">CartClear</a></div>

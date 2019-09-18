@@ -125,11 +125,10 @@ class CartController extends Controller
         ]);
 
         foreach ($data['cart'] as $product_id => $value) {
-            $total_amount = $total_amount + ($value['price'] * $value['quantity']);
             $order->products()->create([
                 'product_id' => $product_id,
                 'quantity' => $value['quantity'],
-                'price' => $value['price'],
+                'price' => $value['price'] * $value['quantity'],
             ]);
         }
 
