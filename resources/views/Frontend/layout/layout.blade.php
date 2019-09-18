@@ -22,13 +22,23 @@
 				    	<input type="text" value="Search for Products" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search for Products';}"><input type="submit" value="SEARCH">
 				    </form>
 			    </div>
+			    <?php 
+			    	$data['cart'] = session()->has('cart') ? session()->get('cart') : [];
+			    	$itemcount = count($data['cart']);
+			     ?>
 			    <div class="shopping_cart">
 					<div class="cart">
-						<a href="#" title="View my shopping cart" rel="nofollow">
-								<span class="cart_title">Cart</span>
-								<span class="no_product">(empty)</span>
-							</a>
-						</div>
+						<a href="{{ route('show.cart') }}" title="View my shopping cart" rel="nofollow">
+							<span class="cart_title">Cart</span>
+							<span class="no_product">
+								@if($itemcount != '')
+									{{$itemcount}}  {{"Checkout"}}
+								@else
+									{{"(empty)"}}
+								@endif 
+							</span>
+						</a>
+					</div>
 			      </div>
 		   @guest
 		   	<div class="login"><a href="{{ route('login.form') }}">Login</a></div>

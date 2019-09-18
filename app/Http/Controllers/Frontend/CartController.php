@@ -104,6 +104,7 @@ class CartController extends Controller
             'email'=>'required',
             'address'=>'required',
             'phone'=>'required|numeric|min:11',
+            'payment'=>'required',
         ]);
 
         $data['cart'] = session()->has('cart') ? session()->get('cart') : [];
@@ -122,6 +123,7 @@ class CartController extends Controller
             'address' => $request->address,
             'total_amount' => $total_amount,
             'paid_amount' => $total_amount,
+            'payment_details' => $request->payment,
         ]);
 
         foreach ($data['cart'] as $product_id => $value) {
