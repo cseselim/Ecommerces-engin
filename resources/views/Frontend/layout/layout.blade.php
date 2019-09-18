@@ -55,9 +55,8 @@
 	  <li><a href="index.html">Home</a></li>
 	  <li><a href="products.html">Products</a> </li>
 	  <li><a href="topbrands.html">Top Brands</a></li>
-	  <li><a href="{{ route('show.cart') }}">Cart</a></li>
 	  @auth
-	  <li><a href="cart.html">Profile</a></li>
+	  <li><a href="{{ route('user.profile') }}">Profile</a></li>
 	  @endauth
 	  <li><a href="contact.html">Contact</a> </li>
 	  <div class="clear"></div>
