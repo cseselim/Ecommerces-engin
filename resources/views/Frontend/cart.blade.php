@@ -52,7 +52,7 @@
 							 <?php } ?>
 						</table>
 						<?php if (!empty($cart)): ?>
-						<table style="float:right;text-align:left;" width="40%">
+						<table class="total_account">
 							<tr>
 								<th>Sub Total : </th>
 								<td>TK. {{$total}}</td>

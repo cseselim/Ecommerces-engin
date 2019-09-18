@@ -2528,3 +2528,9 @@ legend {
 .checkout form input[type="text"]{
     color: #000 ;
 }
+
+.total_account{
+	float:right;
+	text-align: left;
+	width: 20%;
+}
