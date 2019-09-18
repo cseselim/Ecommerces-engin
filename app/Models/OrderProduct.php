@@ -8,7 +8,7 @@ class OrderProduct extends Model
 {
     protected $guarded = [];
 
-    public $timestamp = false;
+    public $timestamps = false;
 
     public function order()
     {

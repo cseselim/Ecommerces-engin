@@ -6,7 +6,8 @@
     	 
     	<div class="register_account checkout">
     		<h3>Shipping Address</h3>
-    		<form action="{{ route('process.registetion') }}" method="post">
+    		<p class="note" >If your edit your Shipping Adderess you can edit now.</p>
+    		<form action="{{ route('order.now') }}" method="post">
     			@csrf
 		   		<table>
 		   			<tbody>
@@ -96,7 +97,7 @@
 				</fieldset> 
 			</div>
 
-		   <div class="search"><div><button class="grey">Create Account</button></div></div>
+		   <div class="search"><div><button class="grey">Order Now</button></div></div>
 		    <p class="terms">By clicking 'Create Account' you agree to the <a href="#">Terms &amp; Conditions</a>.</p>
 		    <div class="clear"></div>
 		    </form>

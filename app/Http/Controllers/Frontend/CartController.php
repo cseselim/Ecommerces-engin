@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Order;
+use App\Models\OrderProduct;
 
 class CartController extends Controller
 {
@@ -90,5 +92,50 @@ class CartController extends Controller
         }else{
             return redirect()->route('login.form');
         }
+    }
+
+
+    public function order(Request $request)
+    {
+        $this->validate($request,[
+            'name'=>'required',
+            'city'=>'required',
+            'postal_code'=>'required',
+            'email'=>'required',
+            'address'=>'required',
+            'phone'=>'required|numeric|min:11',
+        ]);
+
+        $data['cart'] = session()->has('cart') ? session()->get('cart') : [];
+       $total_amount = 0;
+        foreach ($data['cart'] as  $value) {
+            $total_amount = $total_amount + ($value['price'] * $value['quantity']);
+        }
+        session(['total_amount'=> $total_amount]);
+
+        $order = Order::create([
+            'user_id' => Auth()->user()->id,
+            'customer_name' => $request->name,
+            'customer_phone_number' => $request->phone,
+            'city' => $request->city,
+            'postal_code' => $request->postal_code,
+            'address' => $request->address,
+            'total_amount' => $total_amount,
+            'paid_amount' => $total_amount,
+        ]);
+
+        foreach ($data['cart'] as $product_id => $value) {
+            $total_amount = $total_amount + ($value['price'] * $value['quantity']);
+            $order->products()->create([
+                'product_id' => $product_id,
+                'quantity' => $value['quantity'],
+                'price' => $value['price'],
+            ]);
+        }
+
+        session(['cart' => []]);
+        return redirect()->route('show.cart');
+
+
     }
 }

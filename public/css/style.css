@@ -2534,3 +2534,9 @@ legend {
 	text-align: left;
 	width: 20%;
 }
+.note{
+	font-weight: bold;
+    padding: 2px;
+    font-size: 15px;
+    color: #602D8D !important;
+}
