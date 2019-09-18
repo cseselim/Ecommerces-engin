@@ -74,9 +74,11 @@
 						<div class="shopleft">
 							<a href="{{ URL::to('/') }}"> <img src="images/shop.png" alt="" /></a>
 						</div>
+						@if(!empty(Session::get('cart')))
 						<div class="shopright">
 							<a href="{{ route('checkout') }}"> <img src="images/check.png" alt="" /></a>
 						</div>
+						@endif
 					</div>
     	</div>  	
        <div class="clear"></div>
