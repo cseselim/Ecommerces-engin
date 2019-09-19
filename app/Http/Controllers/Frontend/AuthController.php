@@ -35,6 +35,7 @@ class AuthController extends Controller
             if ($user->email_verified == 0) {
 
                 session()->flash('message','Your account is not activated. Please verify your email!');
+                Auth::logout();
                 return view('Frontend.loginform');
 
             }
