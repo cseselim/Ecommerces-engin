@@ -19,8 +19,8 @@ class Product extends Model implements HasMedia
     	});
     }
 
-    public function category()
+    public function productcategory()
     {
-    	return $this->hasOne(Category::class);
+    	return $this->hasOne(Category::class,'id','category_id');
     }
 }

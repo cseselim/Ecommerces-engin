@@ -22,6 +22,7 @@ Route::group(['namespace' => 'Frontend'], function(){
     Route::get('products', 'HomeController@products')->name('products');
     Route::get('contact', 'HomeController@contact')->name('contact');
     Route::get('/product/{slug}', 'ProductContorller@productDetails')->name('product');
+    Route::get('/category/{id}', 'ProductContorller@categoryproducts')->name('categoryproducts');
     Route::get('/cart', 'CartController@ShowCart')->name('show.cart');
     Route::post('/addToCart', 'CartController@addToCart')->name('addToCart');
     Route::post('/removeCart', 'CartController@removeCart')->name('remove.cart');
