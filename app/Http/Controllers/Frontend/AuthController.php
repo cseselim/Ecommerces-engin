@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\AccountVerification;
 use App\Models\User;
 use App\Models\Order;
 
@@ -29,7 +31,14 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
 
         if (Auth()->attempt($credentials)) {
-            
+            $user = Auth()->user();
+            if ($user->email_verified == 0) {
+
+                session()->flash('message','Your account is not activated. Please verify your email!');
+                return view('Frontend.loginform');
+
+            }
+
             return redirect()->route('checkout');
         };
 
@@ -65,7 +74,7 @@ class AuthController extends Controller
         ]);
 
 
-        User::create([
+        $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'phone_number' => $request->phone,
@@ -73,9 +82,12 @@ class AuthController extends Controller
             'postal_code' => $request->postal_code,
             'country' => $request->country,
             'address' => $request->address,
+            'email_verification_token' => str_random(40),
             'password' => Hash::make($request->password),
         ]);
 
+        Mail::to($user->email)->send(new AccountVerification($user));
+        session()->flash('message','Please check your email and verify your account!');
         return redirect()->route('login.form');
     }
 
@@ -83,5 +95,28 @@ class AuthController extends Controller
     public function userprofile()
     {
         return view('Frontend.userprofile');
+    }
+
+    public function accountvarify($token = null)
+    {
+        if ($token == null) {
+            session()->flash('message','Invalid Token');
+            return redirect()->route('login.form');
+        }
+
+        $user = User::where('email_verification_token',$token)->first();
+
+        if ($user == null) {
+            session()->flash('message','Invalid Token');
+            return redirect()->route('login.form');
+        }
+
+        $user->update([
+            'email_verified' => 1,
+            'email_verification_token' => '',
+        ]);
+
+        session()->flash('message','Your account is accivated. You can login now.');
+        return redirect()->route('login.form');
     }
 }

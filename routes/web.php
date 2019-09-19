@@ -29,11 +29,13 @@ Route::group(['namespace' => 'Frontend'], function(){
     Route::post('/order', 'CartController@order')->name('order.now');
     Route::get('/userprofile', 'AuthController@userprofile')->name('user.profile');
     
-    Route::get('/loginfrom', 'AuthController@ShowLoginForm')->name('login.form');
-    Route::post('/processlogin', 'AuthController@processLogin')->name('process.login');
-
     Route::get('/registetionfrom', 'AuthController@ShowRegistetionForm')->name('registetion.from');
     Route::post('/processregistetion', 'AuthController@processRegistetion')->name('process.registetion');
+    Route::get('/accountvarify/{token}', 'AuthController@accountvarify')->name('account.varify');
+
+
+    Route::get('/loginfrom', 'AuthController@ShowLoginForm')->name('login.form');
+    Route::post('/processlogin', 'AuthController@processLogin')->name('process.login');
     Route::get('/logout', 'AuthController@logout')->name('logout');
     Route::get('/logout', 'AuthController@logout')->name('logout');
 

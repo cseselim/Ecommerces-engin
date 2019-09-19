@@ -18,9 +18,12 @@ $factory->define(\App\Models\User::class, function (Faker $faker) {
     return [
         'name' => $faker->name('male'),
         'email' => $faker->email,
+        'city' => $faker->text(5),
+        'postal_code' => $faker->randomNumber(6),
+        'country' => $faker->text(7),
+        'address' => $faker->address,
         'phone_number' => $faker->phoneNumber,
         'password' => bcrypt('secret'), // secret
-        'email_verified_at' => now(),
         'remember_token' => Str::random(10),
     ];
 });
