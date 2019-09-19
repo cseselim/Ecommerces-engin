@@ -28,7 +28,7 @@ class CartController extends Controller
     public function addToCart(Request $request)
     {
     	$cart = [];
-
+        $qty = $request->qty;
     	try {
     		$this->validate($request, [
     			'product_id' => 'required',
@@ -47,12 +47,20 @@ class CartController extends Controller
     	if (array_key_exists($product->id, $cart)) {
     		$cart[$product->id]['quantity']++;
     	}else{
-
-	    	$cart[$product->id] = [
-	    		'title' => $product->title,
-	    		'quantity' => 1,
-	    		'price' => ($product->sale_price != null && $product->sale_price > 0) ? $product->sale_price:$product->price,
-	    	];
+            if ($qty == '') {
+                $cart[$product->id] = [
+                'title' => $product->title,
+                'quantity' => 1,
+                'price' => ($product->sale_price != null && $product->sale_price > 0) ? $product->sale_price:$product->price,
+            ];    
+            }else{
+                $cart[$product->id] = [
+                'title' => $product->title,
+                'quantity' => $qty,
+                'price' => ($product->sale_price != null && $product->sale_price > 0) ? $product->sale_price:$product->price,
+            ];
+            }
+	    	
     	}
 
     	session(['cart' => $cart]);
