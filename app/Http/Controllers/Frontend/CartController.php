@@ -4,12 +4,18 @@ namespace App\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\OrderMail;
 use App\Models\Product;
 use App\Models\Order;
 use App\Models\OrderProduct;
 
+
 class CartController extends Controller
 {
+   
+
+
     public function ShowCart()
     {
     	$data = [];
@@ -117,6 +123,7 @@ class CartController extends Controller
         $order = Order::create([
             'user_id' => Auth()->user()->id,
             'customer_name' => $request->name,
+            'email' => $request->email,
             'customer_phone_number' => $request->phone,
             'city' => $request->city,
             'postal_code' => $request->postal_code,
@@ -133,6 +140,8 @@ class CartController extends Controller
                 'price' => $value['price'] * $value['quantity'],
             ]);
         }
+
+        Mail::to($order->email)->send(new OrderMail($order));
 
         session(['cart' => []]);
         return redirect()->route('show.cart');

@@ -26,8 +26,9 @@ Route::group(['namespace' => 'Frontend'], function(){
     Route::get('/cartclear', 'CartController@cartclear')->name('cart.clear');
 
     Route::get('/checkout', 'CartController@checkout')->name('checkout');
-    Route::post('/order', 'CartController@order')->name('order.now');
     Route::get('/userprofile', 'AuthController@userprofile')->name('user.profile');
+    Route::post('/order', 'CartController@order')->name('order.now');
+    Route::get('/sendorderotification', 'CartController@sendorderotification')->name('sendorderotification');
     
     Route::get('/registetionfrom', 'AuthController@ShowRegistetionForm')->name('registetion.from');
     Route::post('/processregistetion', 'AuthController@processRegistetion')->name('process.registetion');
