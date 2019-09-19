@@ -19,6 +19,8 @@
 Route::group(['namespace' => 'Frontend'], function(){
 
     Route::get('/', 'HomeController@home')->name('home');
+    Route::get('products', 'HomeController@products')->name('products');
+    Route::get('contact', 'HomeController@contact')->name('contact');
     Route::get('/product/{slug}', 'ProductContorller@productDetails')->name('product');
     Route::get('/cart', 'CartController@ShowCart')->name('show.cart');
     Route::post('/addToCart', 'CartController@addToCart')->name('addToCart');

@@ -52,13 +52,13 @@
  </div>
 <div class="menu">
 	<ul id="dc_mega-menu-orange" class="dc_mm-orange">
-	  <li><a href="index.html">Home</a></li>
-	  <li><a href="products.html">Products</a> </li>
-	  <li><a href="topbrands.html">Top Brands</a></li>
+	  <li><a href="{{ route('home') }}">Home</a></li>
+	  <li><a href="{{ route('products') }}">Products</a> </li>
+	  <li><a href="{{ route('products') }}">Top Brands</a></li>
 	  @auth
 	  <li><a href="{{ route('user.profile') }}">Profile</a></li>
 	  @endauth
-	  <li><a href="contact.html">Contact</a> </li>
+	  <li><a href="{{ route('contact') }}">Contact</a> </li>
 	  <div class="clear"></div>
 	</ul>
 </div>
