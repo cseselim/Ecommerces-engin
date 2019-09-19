@@ -10,12 +10,12 @@ class OrderProduct extends Model
 
     public $timestamps = false;
 
-    public function order()
+    public function userorder()
     {
-    	return $this->belogsTo(Order::class);
+    	return $this->belongsTo(Order::class,'order_id','id');
     }
-    public function product()
+    public function productdetais()
     {
-    	return $this->belogsTo(Product::class);
+    	return $this->belongsTo(Product::class,'product_id','id');
     }
 }

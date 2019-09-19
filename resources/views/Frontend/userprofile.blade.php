@@ -45,6 +45,31 @@
 		    </form>
     	</div>  	
        <div class="clear"></div>
+
+       <div class="cartoption">		
+			<div class="cartpage">
+			    <h2>All Order Details</h2>
+				<table class="tblone">
+					<tr>
+						<th width="20%">Product Name</th>
+						<th width="25%">Quantity</th>
+						<th width="20%">Total Price</th>
+					</tr>
+					<?php /*dd($orderdetails)*/ ?>
+					@if($orderdetails)
+					@foreach($orderdetails as $order)
+					
+					<tr>
+						<td>{{ $order->productdetais->title }}</td>
+						<td>{{ $order->quantity }}</td>
+						<td>{{ $order->price }}</td>
+					</tr>
+					@endforeach
+					@endif
+				</table>
+			</div>
+    	</div>  
+
     </div>
  </div>	
 

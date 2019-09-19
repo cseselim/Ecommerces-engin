@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Mail\AccountVerification;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\OrderProduct;
 
 class AuthController extends Controller
 {
@@ -95,7 +96,9 @@ class AuthController extends Controller
 
     public function userprofile()
     {
-        return view('Frontend.userprofile');
+        $orderdetails = OrderProduct::with('userorder','productdetais')->get();
+
+        return view('Frontend.userprofile',compact('orderdetails'));
     }
 
     public function accountvarify($token = null)
