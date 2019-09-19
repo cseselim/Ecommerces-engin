@@ -96,7 +96,8 @@ class AuthController extends Controller
 
     public function userprofile()
     {
-        $orderdetails = OrderProduct::with('userorder','productdetais')->get();
+        $user_id = Auth()->user()->id;
+        $orderdetails = Order::where('user_id',$user_id)->get();
 
         return view('Frontend.userprofile',compact('orderdetails'));
     }

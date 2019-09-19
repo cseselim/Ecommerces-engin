@@ -51,18 +51,22 @@
 			    <h2>All Order Details</h2>
 				<table class="tblone">
 					<tr>
-						<th width="20%">Product Name</th>
-						<th width="25%">Quantity</th>
-						<th width="20%">Total Price</th>
+						<th width="20%">Voucher No</th>
+						<th width="25%">Order Date</th>
+						<th width="20%">Ship To</th>
+						<th width="20%">Order Total (BDT)</th>
+						<th width="20%">Status</th>
 					</tr>
 					<?php /*dd($orderdetails)*/ ?>
 					@if($orderdetails)
 					@foreach($orderdetails as $order)
 					
 					<tr>
-						<td>{{ $order->productdetais->title }}</td>
-						<td>{{ $order->quantity }}</td>
-						<td>{{ $order->price }}</td>
+						<td>{{ $order->id }}</td>
+						<td>{{ $order->created_at}}</td>
+						<td>{{ $order->customer_name }}</td>
+						<td>{{ $order->paid_amount }}</td>
+						<td>{{ $order->operational_status }}</td>
 					</tr>
 					@endforeach
 					@endif
