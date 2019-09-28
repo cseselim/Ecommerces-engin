@@ -10,5 +10,6 @@ $factory->define(\App\Models\Product::class, function (Faker $faker) {
         'description' => $faker->realText(),
         'price' => random_int(100, 1000),
         'sale_price' => random_int(0, 1000),
+        'image' => $faker->image('public/products/',212,212,null,false),
     ];
 });

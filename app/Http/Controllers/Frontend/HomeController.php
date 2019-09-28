@@ -11,7 +11,7 @@ class HomeController extends Controller
 {
     public function home()
     {
-    	$products = Product::select(['id','title','slug','price','sale_price','description'])->get();
+    	$products = Product::select(['id','title','image','slug','price','sale_price','description'])->get();
     	return view('Frontend.home',compact('products'));
     }
 

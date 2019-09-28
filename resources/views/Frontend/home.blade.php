@@ -81,9 +81,10 @@
 	      			foreach ($products as  $value) {
 	      		 ?>
 				<div class="grid_1_of_4 images_1_of_4">
-					 <a href="{{$value->slug}}">
-					 	<img src="{{ asset('') }}images/feature-pic2.jpg" alt="product"/></a>
-					 <h2>{{  Str::limit($value->title, 50, '...') }} </h2>
+					 <a href="{{ route('product',$value->slug)}}">
+					 	<img src="{{ asset('') }}products/{{$value->image}}" alt="product"/></a>
+					 	
+					 <h2>{{  Str::limit($value->title, 22, '...') }} </h2>
 					 <p>{{  Str::limit($value->description, 50, '...') }}</p>
 					 <p><span class="price">
 					 	@if($value->sale_price != null && $value->sale_price > 0)
